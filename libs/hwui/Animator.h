@@ -156,8 +156,9 @@ protected:
 
     sp<AnimationListener> mListener;
 
+    enum class Request { Start, Reverse, Reset, Cancel, End, Update };
+
 private:
-    enum class Request { Start, Reverse, Reset, Cancel, End };
 
     // Defines different actions upon finish.
     enum class Action {
@@ -172,8 +173,8 @@ private:
     inline void checkMutable();
     virtual void transitionToRunning(AnimationContext& context);
     void doSetStartValue(float value);
-    bool updatePlayTime(nsecs_t playTime);
-    void resolveStagingRequest(Request request);
+    virtual bool updatePlayTime(nsecs_t playTime);
+    virtual void resolveStagingRequest(Request request);
 
     std::vector<Request> mStagingRequests;
     Action mPendingActionUponFinish = Action::None;

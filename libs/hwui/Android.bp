@@ -515,6 +515,7 @@ cc_defaults {
         "AnimatorManager.cpp",
         "CanvasTransform.cpp",
         "DamageAccumulator.cpp",
+        "HWSpringAnimator.cpp",
         "HWSpringModel.cpp",
         "Interpolator.cpp",
         "LightingInfo.cpp",

@@ -234,6 +234,7 @@ bool BaseRenderNodeAnimator::animate(AnimationContext& context) {
     if (mPlayState < PlayState::Running) {
         return false;
     }
+    initAnimation(context);
     if (mPlayState == PlayState::Finished) {
         if (mPendingActionUponFinish == Action::Reset) {
             // Skip to start.

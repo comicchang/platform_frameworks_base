@@ -130,6 +130,7 @@ protected:
     virtual void setValue(RenderNode* target, float value) = 0;
 
     void callOnFinishedListener(AnimationContext& context);
+    virtual void initAnimation(AnimationContext& context){};
 
     virtual void onStagingPlayStateChanged() {}
     virtual void onPlayTimeChanged(nsecs_t playTime) {}
@@ -157,6 +158,7 @@ protected:
     sp<AnimationListener> mListener;
 
     enum class Request { Start, Reverse, Reset, Cancel, End, Update };
+    virtual void resolveStagingRequest(Request request);
 
 private:
 
@@ -174,7 +176,6 @@ private:
     virtual void transitionToRunning(AnimationContext& context);
     void doSetStartValue(float value);
     virtual bool updatePlayTime(nsecs_t playTime);
-    virtual void resolveStagingRequest(Request request);
 
     std::vector<Request> mStagingRequests;
     Action mPendingActionUponFinish = Action::None;

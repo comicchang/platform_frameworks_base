@@ -19,8 +19,8 @@ namespace android {
 namespace uirenderer {
 class HWSpringModel {
 public:
-    explicit HWSpringModel(float response, float dampingRatio, float initialOffset,
-                           float initialVelocity, float minimumAmplitude);
+    HWSpringModel(float response, float dampingRatio, float initialOffset, float initialVelocity,
+                  float minimumAmplitude);
 
     virtual ~HWSpringModel() = default;
 
